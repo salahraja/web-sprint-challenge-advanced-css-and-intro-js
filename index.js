@@ -81,7 +81,7 @@ const artists = [
     },
     {
       "id": 8,
-      "name": "Vincent van Dough",
+      "name": "Vincent van Gogh",
       "years": "1853 – 1890",
       "genre": "Post-Impressionism",
       "nationality": "Dutch",
@@ -208,9 +208,16 @@ const artists = [
 (1) Name of the first artist (0th index) in the array
 (2) Bio of the third artist (2nd index) in the array */
 
+console.log (artists[0]["name"]);
 
+console.log (artists[2]["bio"])
+
+ 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
+
+
+console.log(artists[8]["name"]);
 
 
 
@@ -222,10 +229,11 @@ const artists = [
  * For example, if getArtistByIndex is invoked with the artists dataset and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(array, index) {
-    /* code here */
+function getArtistByIndex(artists, id) {
+  for (i = 0; i< 19; i++){
+  return The "artists at" + "id" + "is" "name";
   }
-  
+}
   /**
 
 
