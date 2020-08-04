@@ -81,8 +81,8 @@ const artists = [
     },
     {
       "id": 8,
-      "name": "Vincent van Gogh",
-      "years": "1853 – 1890",
+      "name": "Vincent van Dough",
+      "years": "1853 - 1890",
       "genre": "Post-Impressionism",
       "nationality": "Dutch",
       "bio": "Vincent Willem van Gogh (Dutch: [ˈvɪnsɛnt ˈʋɪləm vɑŋ ˈɣɔx] (listen); 30 March 1853 – 29 July 1890) was a Dutch Post-Impressionist painter who is among the most famous and influential figures in the history of Western art. In just over a decade he created about 2,100 artworks, including around 860 oil paintings, most of them in the last two years of his life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold colours and dramatic, impulsive and expressive brushwork that contributed to the foundations of modern art. However, he was not commercially successful, and his suicide at 37 followed years of mental illness and poverty.",
@@ -208,18 +208,33 @@ const artists = [
 (1) Name of the first artist (0th index) in the array
 (2) Bio of the third artist (2nd index) in the array */
 
-console.log (artists[0]["name"]);
+console.log (artists[0].name);
 
-console.log (artists[2]["bio"])
+console.log (artists[2].bio)
 
  
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
+artists[8].name = "Vincent Van Gogh"
+console.log(artists[8].name)
+// const changeNameWithForLoop = (arr) => {
+//   for(i=0; i < arr.length; i++){
+//     if(arr[i].name.includes('Vincent')){
+//      return arr[i].name = 'Vinnny boi'
+//     }
+//   }
+// }
+// console.log(changeNameWithForLoop(artists))
 
-console.log(artists[8]["name"]);
 
+// function changeName(array, index, artistName){
+//  array[index].name = artistName
+//  return array[index].name
+// }
 
+// console.log(changeName(artists, 8, "Vincent Van Dogh"))
+// console.log(artists[8].name);
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
@@ -229,22 +244,46 @@ console.log(artists[8]["name"]);
  * For example, if getArtistByIndex is invoked with the artists dataset and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(artists, id) {
-  for (i = 0; i< 19; i++){
-  return The "artists at" + "id" + "is" "name";
-  }
+const getArtistByIndex = (arr, index) => {
+  return `The artist is at index ${index} is ${arr[index].name}`
 }
-  /**
+console.log(getArtistByIndex(artists, 12))
+/**
+      // for (i = 0; i< 19; i++){
+      // return The "artists at" + "id" + "is" "name";
+      // }
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who lived in the 20th century (1900-2000) */
 
-function get20s(/* Code here */){
-
-  /* Code here */
-
+let varName = 'helloWorld'
+function get20s(arr) {
+  let aliveIn20s =[]
+  for(i=0; i < arr.length; i++){
+    if(arr[i].years.includes('19')){
+      aliveIn20s.push(arr[i].name)
+    }
+  }
+  return aliveIn20s
 }
 
+console.log(get20s(artists))
+// function get20s(arr){
+//   let aliveIn20s = []
+ 
+//   for(i=0; i < arr.length; i++){
+//     let years = arr[i].years.split('-')
+//     let bday = Number(years[i])
+//     let deathDay = Number(years[1])
+//       if(bday > 1901 && bday < 2000 || deathDay < 2000 && deathDay > 1901){
+        
+//         aliveIn20s.push(arr[i])
+//       }
+//     if(arr[i].years){
+//     }
+//   return aliveIn20s
+// };
+// console.log(get20s(artists))
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
  *     (1) artists array
@@ -254,12 +293,13 @@ function get20s(/* Code here */){
  * For example, if removeArtist is invoked with the data and the number 0,
  * it will remove Amedeo Modigliani from our dataset and log the number 19. 
  * 
- * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
+ * Note that sucesslly invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
-    /* code here */
-  }
-  
+function removeArtist(arr, index) {
+      arr.splice(index, 1)
+    return console.log(arr.length)
+}
+  removeArtist(artists, 0)
   /**
 
 
@@ -277,27 +317,64 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should console.log() the new array with information added"*/
 
-function addArtist(/* Code here */){
 
-    /* Code here */
-
+function addArtist(newArtist) {
+  newArtObject = {
+    id: artists.length,
+    name: newArtist[0],
+    years: newArtist[1],
+    genre: newArtist[2],
+    nationality: newArtist[3],
+    bio: newArtist[4],
   }
+  artists.push(newArtObject)
+  console.log(artists)
+}
 
+addArtist(['Salah', '199999-3333333', 'this is your genre', 'future space aliens','very detailed bio'])
+
+
+
+// function addArtist(arr,name,years, genre, nationality, bio){
+//   arr.push({
+//     'id' : arr.length,
+//     name,
+//     years,
+//     genre, 
+//     nationality,
+//     bio
+//   })
+// return arr
+//     /* Code here */
+
+//   }
+// console.log(addArtist(artists,'lilly','1990- 2111', 'this is my genere', 'irish native and some other stuff','tis a bio'))
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
     (1) artists array 
 
-and returns an array with names of artists who painted more than 100 paintings.
+and re turns an arraywith names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
+function lotsOfArt(arr){
+  // and array
+  let busyPainters = []
 
-  /* Code here */
 
+  for(i = 0; i < arr.length; i++){
+    arr[i]
+    if(arr[i].paintings > 99){
+      busyPainters.push(arr[i].name)
+    }
+  }
+  
+
+  return busyPainters
+  //return an array what do we need in order to return an array
 }
 
-
+console.log('busy guyus',lotsOfArt(artists))
 
 // 🎨🎨 STRETCH 🎨🎨//
 
